@@ -1,1 +1,1 @@
-console.log('app connected');
+var app = angular.module('gemStore', []);
