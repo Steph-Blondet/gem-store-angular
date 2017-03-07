@@ -40,25 +40,22 @@
                     <blockquote ng-repeat="review in product.reviews">
                         <b>{{review.stars}} Stars</b>
                         {{review.body}}
-                        <cite>by: {{review.author}}</cite>
+                        <cite>-by: {{review.author}}</cite>
                     </blockquote>
 
-                    <form name="reviewForm">
+                    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
+                    ng-submit="reviewCtrl.addReview(product)">
                         <blockquote>
-                            <b>{{review.stars}} Stars</b>
-                            {{review.body}}
-                            <cite>by: {{review.author}}</cite>
+                            <b>{{reviewCtrl.review.stars}} Stars</b>
+                            {{reviewCtrl.review.body}}
+                            <cite>-by: {{reviewCtrl.review.author}}</cite>
                         </blockquote>
-                        <select ng-model="review.stars">
-                            <option value="1">1 stars</option>
-                            <option value="2">2 stars</option>
-                            <option value="3">3 stars</option>
-                            <option value="4">4 stars</option>
-                            <option value="5">5 stars</option>
+                        <select ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+                            <option value="">Rate the Product</option>
                         </select>
-                        <textarea ng-model="review.body"placeholder="Write a short review of the product..."></textarea>
-                        <label>by:</label>
-                        <input ng-model="review.author"type="email" placeholder="Your email"/>
+                        <textarea ng-model="reviewCtrl.review.body"placeholder="Write a short review of the product..."></textarea>
+                        <label>-by:</label>
+                        <input ng-model="reviewCtrl.review.author"type="email" placeholder="Your email"/>
                         <input type="submit" value="Submit Review">
                     </form>
 
