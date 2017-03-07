@@ -5,6 +5,14 @@
     this.products = gems;
   });
 
+  app.controller('GalleryController', function() {
+    this.imageIndex = 0;
+    this.setCurrent = function(imageNumber) {
+      console.log(imageNumber);
+      this.imageIndex = imageNumber || 0;
+    };
+  });
+
   app.controller("PanelController", function(){
     this.tab = 1;
 
@@ -24,6 +32,7 @@
       this.review = {};
     };
   });
+
 
   var gems = [
     {
@@ -45,16 +54,19 @@
           body: "This gem sucks.",
           author: "tim@hater.com",
           createdOn: 1397490980837
-        }]
+        }],
+        shine: 70,
+        faces: 6,
+        rarity: 2
       },
       {
         name: 'Pentagonal Gem',
         price: 5.95,
         description: 'Some gems have hidden qualities beyond their luster, beyond their shine... Dodeca is one of those gems.',
         images: [
-          "img/gem-01.gif",
-          "img/gem-03.gif",
-          "img/gem-04.gif",
+          "img/gem-07.gif",
+          "img/gem-08.gif",
+          "img/gem-10.gif",
         ],
         reviews: [{
             stars: 3,
@@ -66,7 +78,10 @@
             body: "Any gem with 12 faces is for me!",
             author: "gemsRock@alyssaNicoll.com",
             createdOn: 1397490980837
-        }]
+        }],
+        shine: 9,
+        faces: 12,
+        rarity: 6
       }
   ];
 
