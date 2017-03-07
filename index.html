@@ -37,7 +37,31 @@
                 </div>
                 <div class="panel" ng-show="panel.isSelected(3)">
                     <h4>Reviews</h4>
-                    <blockquote>None yet</blockquote>
+                    <blockquote ng-repeat="review in product.reviews">
+                        <b>{{review.stars}} Stars</b>
+                        {{review.body}}
+                        <cite>by: {{review.author}}</cite>
+                    </blockquote>
+
+                    <form name="reviewForm">
+                        <blockquote>
+                            <b>{{review.stars}} Stars</b>
+                            {{review.body}}
+                            <cite>by: {{review.author}}</cite>
+                        </blockquote>
+                        <select ng-model="review.stars">
+                            <option value="1">1 stars</option>
+                            <option value="2">2 stars</option>
+                            <option value="3">3 stars</option>
+                            <option value="4">4 stars</option>
+                            <option value="5">5 stars</option>
+                        </select>
+                        <textarea ng-model="review.body"placeholder="Write a short review of the product..."></textarea>
+                        <label>by:</label>
+                        <input ng-model="review.author"type="email" placeholder="Your email"/>
+                        <input type="submit" value="Submit Review">
+                    </form>
+
                 </div>
 
 
