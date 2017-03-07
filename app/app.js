@@ -1,12 +1,5 @@
 (function(){
-  var app = angular.module('gemStore', []);
-
-  app.directive('productDescription', function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'product-description.html'
-    };
-  });
+  var app = angular.module('gemStore', ['store-products']);
 
   app.controller("StoreController", function(){
     this.products = gems;
